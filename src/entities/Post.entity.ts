@@ -18,7 +18,7 @@ export class Post {
   headline: string
 
   @Column()
-  text: string
+  content: string
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   @ManyToOne((_) => User, { nullable: false, onDelete: 'RESTRICT' })

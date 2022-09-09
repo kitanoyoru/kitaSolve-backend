@@ -7,7 +7,9 @@ import { typeormConfig } from './helpers/typeorm'
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     CacheModule.register({
       isGlobal: true,
       store: redisStore,
