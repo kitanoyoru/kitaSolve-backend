@@ -1,5 +1,7 @@
 import * as bcrypt from 'bcrypt'
+
 import { Exclude } from 'class-transformer'
+import { IsEmail, IsNotEmpty } from 'class-validator'
 
 import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
 
@@ -9,6 +11,7 @@ export class User {
   id: number
 
   @Column({ unique: true })
+  @IsEmail()
   email: string
 
   @Column()
@@ -16,6 +19,7 @@ export class User {
   password: string
 
   @Column()
+  @IsNotEmpty()
   username: string
 
   constructor(data: Partial<User> = {}) {
